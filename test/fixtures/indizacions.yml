@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_doc: MyString
+  num_doc: 1
+  fecha_doc: 2020-04-25
+  ini_fol: 1
+  fin_fol: 1
+  ini_doc: 1
+  fin_doc: 1
+  doc_id: 
+  user_id: 1
+
+two:
+  tipo_doc: MyString
+  num_doc: 1
+  fecha_doc: 2020-04-25
+  ini_fol: 1
+  fin_fol: 1
+  ini_doc: 1
+  fin_doc: 1
+  doc_id: 
+  user_id: 1

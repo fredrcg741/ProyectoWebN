@@ -1,0 +1,2 @@
+class Indizacion < ApplicationRecord
+end

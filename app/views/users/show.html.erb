@@ -1,0 +1,51 @@
+<div class="content-body">
+    <div class="container-fluid mt-3">
+		<i class="icon-notebook menu-icon btn-lg"></i><span class="h3"> Administrar Usuario</span>
+		<p>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table header-border table-hover verticle-middle">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Correo</th>
+                                        <th scope="col">Nivel</th>
+                                        <th scope="col">Empresa</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Opción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @users.each do |user| %>
+                                        <tr>
+                                            <th><%= user.id %></th>
+                                            <td><%= user.nombre %> <%= user.apellido_paterno %> <%= user.apellido_materno %></td>
+                                            <td><%= user.correo %></td>
+                                            <td><%= user.nivel %></td>
+                                            <td><%= user.empresa_id %></td>
+                                            <td><%= user.estado %></td>
+                                            <td>
+                                                <a href=<%= user.id %>/edit data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                                    <i class="fa fa-pencil color-muted m-r-5"></i>
+                                                </a>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href=<%= user.id %>/delete data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete">
+                                                    <i class="fa fa-close color-danger m-r-5"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>

@@ -1,0 +1,109 @@
+<div class="content-body">
+    <div class="container-fluid mt-3">
+		<i class="icon-note menu-icon btn-lg"></i><span class="h3"> Información de Indización</span>
+		<p>
+        <div class="row">
+			<div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <%= form_for :digital, :url => { :action => :update, :id => @digital.id }, :method => :put do |digital| %>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label class="col-sm-12 col-form-label col-form-label-lg"> Información de Digitalización</label>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Número de Lote</label>
+                                        <input type="text" name="digital[nro_lote]" class="form-control" required="" readonly="" value="<%= @digital.nro_lote %>">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Usuario</label>
+                                        <input type="number" name="digital[user_id]" class="form-control" required="" readonly="" value="<%= @digital.user_id %>">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Documento</label>
+                                        <input type="text" name="digital[documento]" class="form-control" required="" readonly="" value="<%= @digital.documento %>">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Número de Páginas</label>
+                                        <input type="number" name="digital[nro_pages]" class="form-control" required="" readonly="" value="<%= @digital.nro_pages %>">
+                                    </div>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <%= form_for :indizacion, :url => { :action => :update, :id => @digital.id }, :method => :put do |indizacion| %>
+                                <input type="number" name="indizacion[doc_id]" class="form-control" required="" hidden="" value="<%= @digital.id %>">
+                                <input type="number" name="indizacion[user_id]" class="form-control" required="" hidden="" value="<%= current_user.id %>">
+
+                                <% if @indizacion %><% if @indizacion.tipo_doc == "aaaa" %>select=""<%end%><%end%>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Tipo de Documento</label>
+                                        <select name="indizacion[tipo_doc]" id="inputState" class="form-control" required="">
+                                            <option value=""></option>
+                                            <option <% if @indizacion %><% if @indizacion.tipo_doc == "Mesa de Partes" %>select=""<%end%><%end%>>Mesa de Partes</option>
+                                            <option <% if @indizacion %><% if @indizacion.tipo_doc == "Acta de Consejo Directivo" %>select=""<%end%><%end%>>Acta de Consejo Directivo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Número del Documento</label>
+                                        <input type="number" name="indizacion[num_doc]" class="form-control" required="" value="<% if @indizacion %><%= @indizacion.num_doc %><%end%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Fecha del Documento</label>
+                                        <input type="date" name="indizacion[fecha_doc]" class="form-control" value="<% if @indizacion %><%= @indizacion.fecha_doc %><%end%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Inicio de Folio</label>
+                                        <input type="number" name="indizacion[ini_fol]" class="form-control" value="<% if @indizacion %><%= @indizacion.ini_fol %><%end%>">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Fin de Folio</label>
+                                        <input type="number" name="indizacion[fin_fol]" class="form-control" value="<% if @indizacion %><%= @indizacion.fin_fol %><%end%>">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Inicio de Documento </label>
+                                        <input type="number" name="indizacion[ini_doc]" class="form-control" value="<% if @indizacion %><%= @indizacion.ini_doc %><%end%>">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Fin de Documento </label>
+                                        <input type="number" name="indizacion[fin_doc]" class="form-control" value="<% if @indizacion %><%= @indizacion.fin_doc %><%end%>">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-success btn-lg" id="toastr-success-top-right">Grabar</button>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #/ container -->
+</div>
